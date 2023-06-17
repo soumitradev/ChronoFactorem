@@ -5,7 +5,7 @@ services:
     image: "chrono"
     depends_on:
       - mongo
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 3000:5000
     env_file:
