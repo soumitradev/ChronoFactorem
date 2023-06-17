@@ -51,7 +51,7 @@ const Dashboard = (props) => {
 
   function deleteTT(id) {
     try {
-      axios.delete(`/api/timetable/delete/${id}`).then((res) => {
+      axios.delete(`/chrono/api/timetable/delete/${id}`).then((res) => {
         if (res.status === 200) {
           let newData = (savedTT || data).filter((item) => item._id !== id)
           setTTData({ savedTT: newData })
@@ -70,7 +70,7 @@ const Dashboard = (props) => {
 
   function toggleShare(id, action) {
     try {
-      axios.get(`/api/timetable/toggleShare/${id}`).then((res) => {
+      axios.get(`/chrono/api/timetable/toggleShare/${id}`).then((res) => {
         if (res.status === 200) {
           let newData = []
           for (let item of savedTT || data) {
@@ -95,7 +95,7 @@ const Dashboard = (props) => {
 
   const [data, setData] = React.useState(null);
   useEffect(() => {
-    axios.get("/api/timetable/getTT").then((response) => {
+    axios.get("/chrono/api/timetable/getTT").then((response) => {
       setData(response.data);
     }).catch((error) => {
       console.log(error.toJSON());

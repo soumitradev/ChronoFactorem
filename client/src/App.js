@@ -27,7 +27,7 @@ const App = () => {
   }, []);
   return (
     <Provider store={store}>
-      <BrowserRouter history={history}>
+      <BrowserRouter history={history} basename="/chrono">
         <Navbar />
         <Route exact path="/" component={Landing} />
         <div className="body-wrapper">

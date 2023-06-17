@@ -12,7 +12,7 @@ import { useEffect } from "react";
 const SemiPrivateRoute = ({ component: Component, ...rest }) => {
   const [userInfo, setUserInfo] = React.useState(null);
   useEffect(() => {
-    axios.get("/api/current_user").then((response) => {
+    axios.get("/chrono/api/current_user").then((response) => {
       setUserInfo(response.data);
     }).catch((error) => {
       console.log(error.toJSON());

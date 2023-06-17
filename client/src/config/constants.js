@@ -1,20 +1,20 @@
 const prod = {
   urls: {
-    googleAuth: "https://chronofactorem.up.railway.app/api/auth/google",
-    adminLogin: "https://chrono-dashboard.herokuapp.com/"
-  }
-};
+    googleAuth: "https://crux-bpc.com/chrono/api/auth/google",
+    adminLogin: "https://chrono-dashboard.herokuapp.com/",
+  },
+}
 
 const dev = {
   urls: {
     googleAuth: "http://localhost:5000/api/auth/google",
-    adminLogin: "http://localhost:3001"
-  }
-};
+    adminLogin: "http://localhost:3001",
+  },
+}
 
 const configuration = {
   // Add common constants here
-  ...(process.env.NODE_ENV === "development" ? dev : prod)
-};
+  ...(process.env.NODE_ENV === "development" ? dev : prod),
+}
 
-export default configuration;
+export default configuration

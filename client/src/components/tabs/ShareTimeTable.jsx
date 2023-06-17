@@ -158,7 +158,7 @@ const ShareTimeTable = (props) => {
 
   const [sharedData, setSharedData] = React.useState(null);
   useEffect(() => {
-    axios.get("/api/current_user").then((response) => {
+    axios.get("/chrono/api/current_user").then((response) => {
       setSharedData(response.data);
     }).catch((error) => {
       console.log(error.toJSON());

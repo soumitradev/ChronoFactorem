@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 import {
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
@@ -6,74 +6,74 @@ import {
   LOGOUT_FAILURE,
   USER_LOADED,
   NO_USER,
-} from "./types";
+} from "./types"
 
-import { history } from "../../App";
-export const verifyLogin = () => async dispatch => {
+import { history } from "../../App"
+export const verifyLogin = () => async (dispatch) => {
   try {
-    const res = await axios.get("/api/loggedin");
+    const res = await axios.get("/chrono/api/loggedin")
     if (res.status === 200 && res.data.name) {
-      localStorage.setItem("loggedIn", true);
+      localStorage.setItem("loggedIn", true)
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: res.data
-      });
+        payload: res.data,
+      })
     } else {
       dispatch({
-        type: LOGIN_FAILURE
-      });
+        type: LOGIN_FAILURE,
+      })
     }
   } catch (err) {
     dispatch({
-      type: LOGIN_FAILURE
-    });
+      type: LOGIN_FAILURE,
+    })
   }
-};
+}
 
-export const loadUser = () => async dispatch => {
+export const loadUser = () => async (dispatch) => {
   try {
-    const res = await axios.get("/api/loggedin");
-    localStorage.setItem("loggedIn", true);
+    const res = await axios.get("/chrono/api/loggedin")
+    localStorage.setItem("loggedIn", true)
     if (res.status === 200 && res.data.name) {
       dispatch({
         type: USER_LOADED,
-        payload: res.data
-      });
+        payload: res.data,
+      })
     } else {
       dispatch({
-        type: NO_USER
-      });
+        type: NO_USER,
+      })
     }
   } catch (err) {
     dispatch({
-      type: NO_USER
-    });
+      type: NO_USER,
+    })
   }
-};
+}
 
-export const logout = () => async dispatch => {
+export const logout = () => async (dispatch) => {
   if (
     !window.confirm("All your unsaved progress will be lost once you logout!")
   ) {
-    return;
+    return
   }
   await axios
     .get("/api/logout")
     .then(() => {
       dispatch({
-        type: LOGOUT_SUCCESS
-      });
+        type: LOGOUT_SUCCESS,
+      })
     })
     .then(() => {
-      history.push("/");
+      history.push("/")
     })
     .then(() => {
-      localStorage.removeItem("loggedIn");
-      window.location.reload();
+      localStorage.removeItem("loggedIn")
+      window.location.reload()
     })
-    .catch(err => {
+    .catch((err) => {
       // TODO: Can choose to pass error and show alert. For when alerts are implemented.
       // dispatch({ type: 'LOGOUT_FAILURE', err});
-      dispatch({ type: LOGOUT_FAILURE });
-    });
-};
+      dispatch({ type: LOGOUT_FAILURE })
+    })
+}
