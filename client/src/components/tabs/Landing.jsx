@@ -8,7 +8,7 @@ export const Landing = () => {
 
   const [userInfo, setUserInfo] = React.useState(null);
   useEffect(() => {
-    axios.get("/chrono/api/current_user").then((response) => {
+    axios.get("/api/current_user").then((response) => {
       setUserInfo(response.data);
     }).catch((error) => {
       console.log(error.toJSON());

@@ -19,7 +19,7 @@ export const submitForm =
             throw new Error("Could not submit form.")
           }
         })
-      const res = await axios.get("/chrono/api/current_user")
+      const res = await axios.get("/api/current_user")
       const email = res.data.email
 
       let studentBranch = []

@@ -49,5 +49,4 @@
     ]
   },
   "proxy": "http://localhost:5000",
-  "homepage": "https://crux-bphc.com/chrono"
 }

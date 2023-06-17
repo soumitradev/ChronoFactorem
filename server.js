@@ -40,21 +40,16 @@ const passportJS = require("./passport.js")
 app.use(passport.initialize())
 app.use(passport.session({ saveUninitialized: false, resave: false }))
 
-let BASEPATH = ""
-if (process.env.NODE_ENV === "production") {
-  BASEPATH = "/chrono";
-}
-
 /* Define Routes */
-app.use(`${BASEPATH}/api`, auth)
-app.use(`${BASEPATH}/api/helform`, helForm)
-app.use(`${BASEPATH}/api/helData`, helData)
-app.use(`${BASEPATH}/api/timetable`, timetable)
+app.use(`/api`, auth)
+app.use(`/api/helform`, helForm)
+app.use(`/api/helData`, helData)
+app.use(`/api/timetable`, timetable)
 
 if (process.env.NODE_ENV === "production") {
-  app.use(`${BASEPATH}`, express.static("client/build"))
+  app.use(``, express.static("client/build"))
 
-  app.get(`${BASEPATH}/`, (req, res) => {
+  app.get(`/`, (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
   })
 }

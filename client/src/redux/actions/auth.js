@@ -11,7 +11,7 @@ import {
 import { history } from "../../App"
 export const verifyLogin = () => async (dispatch) => {
   try {
-    const res = await axios.get("/chrono/api/loggedin")
+    const res = await axios.get("/api/loggedin")
     if (res.status === 200 && res.data.name) {
       localStorage.setItem("loggedIn", true)
       dispatch({
@@ -32,7 +32,7 @@ export const verifyLogin = () => async (dispatch) => {
 
 export const loadUser = () => async (dispatch) => {
   try {
-    const res = await axios.get("/chrono/api/loggedin")
+    const res = await axios.get("/api/loggedin")
     localStorage.setItem("loggedIn", true)
     if (res.status === 200 && res.data.name) {
       dispatch({

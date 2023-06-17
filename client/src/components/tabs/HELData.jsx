@@ -44,7 +44,7 @@ const HELData = () => {
     event = event[0] + " " + event[1]
 
     try {
-      axios.get(`/chrono/api/helData/searchHEL/${event}`).then((res) => {
+      axios.get(`/api/helData/searchHEL/${event}`).then((res) => {
         resp = true
         result = res.data.studentsInterestedInAllSlots
 
@@ -107,7 +107,7 @@ const HELData = () => {
 
   const [userInfo, setUserInfo] = React.useState(null);
   useEffect(() => {
-    axios.get("/chrono/api/heldata/searchHEL/:name").then((response) => {
+    axios.get("/api/heldata/searchHEL/:name").then((response) => {
       setUserInfo(response.data);
     });
   }, []);

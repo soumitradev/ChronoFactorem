@@ -1,6 +1,6 @@
 const prod = {
   urls: {
-    googleAuth: "https://crux-bphc.com/chrono/api/auth/google",
+    googleAuth: "https://chrono.crux-bphc.com/api/auth/google",
     adminLogin: "https://chrono-dashboard.herokuapp.com/",
   },
 }
