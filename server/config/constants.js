@@ -1,7 +1,7 @@
 const prod = {
   urls: {
     googleAuthCallback: "https://crux-bphc.com/chrono/api/auth/google/callback",
-    homePage: "https://chronofactorem.up.railway.app/checkloggedin",
+    homePage: "https://crux-bphc.com/chrono/checkloggedin",
   },
 }
 
